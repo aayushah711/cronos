@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const authRoutes = require("./src/routes/auth.routes");
 
-function createServer() {
+const createServer = () => {
   const app = express();
   app.use(bodyParser.json());
   app.use(express.json());
@@ -19,7 +19,7 @@ function createServer() {
 
   server.on("close", () => container.dispose());
   return server;
-}
+};
 
 // Start the server
 const server = createServer();
