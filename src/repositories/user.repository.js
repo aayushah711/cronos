@@ -1,10 +1,15 @@
 class UserRepository {
-  constructor({ db }) {
-    this.db = db;
+  constructor({ userModel }) {
+    this.userModel = userModel;
   }
 
-  async createUser(user) {
-    return Promise.resolve({ id: 1, name: "John Doe" });
+  async createUser(userData) {
+    try {
+      const user = await this.userModel.create(userData);
+      return user;
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 
   async getUserById(id) {}
