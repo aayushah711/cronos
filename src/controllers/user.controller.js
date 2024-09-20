@@ -23,6 +23,14 @@ class UserController {
     }
   };
 
+  logoutUser = async (req, res) => {
+    try {
+      res.status(200).json({ message: "User logged out successfully" });
+    } catch (error) {
+      this.handleError(res, error);
+    }
+  };
+
   getUser = async (req, res) => {
     try {
       const user = await this.userService.getUserById(req.params.id);

@@ -16,3 +16,12 @@ Content-Type: application/json
     "email": "user1@example.com",
     "password": "password"
 }
+
+### User Logout
+POST http://localhost:3000/auth/logout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkZjhhZGNjLTc3NjQtNDRkZC05MDMxLThiZThlNGY4NTZmYiIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjY4NTY3NDksImV4cCI6MTcyNjg2MDM0OX0.b8Aec_PMl75y1Cdy-58s9cysvdhs6PXqmqzvG2lTsUs
+
+{
+    "email": "user1@example.com"
+}
