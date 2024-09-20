@@ -1,26 +1,20 @@
 const { asClass, createContainer, asValue, Lifetime } = require("awilix");
-const Database = require("../utils/db");
-
 const UserRepository = require("../repositories/user.repository");
 const UserService = require("../services/user.service");
 const UserController = require("../controllers/user.controller");
 
-const container = createContainer();
+const configureContainer = (models, sequelize) => {
+  const container = createContainer();
 
-(async () => {
-  const db = new Database();
-  await db.initializeDatabase();
-  const sequelize = db.getConnection();
   container.register({
-    db: asValue(sequelize),
-    userModel: asClass(sequelize.models.User),
-    userRepository: asClass(UserRepository, {
-      lifetime: Lifetime.SINGLETON,
-    }),
+    sequelize: asValue(sequelize),
+    models: asValue(models),
     userService: asClass(UserService, { lifetime: Lifetime.SINGLETON }),
-    userController: asClass(UserController, {
-      lifetime: Lifetime.SINGLETON,
-    }),
+    userRepository: asClass(UserRepository, { lifetime: Lifetime.SINGLETON }),
+    userController: asClass(UserController, { lifetime: Lifetime.SINGLETON }),
   });
-})();
-module.exports = container;
+
+  return container;
+};
+
+module.exports = configureContainer;

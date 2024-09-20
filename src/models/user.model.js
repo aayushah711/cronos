@@ -1,8 +1,6 @@
-const { Model } = require("sequelize");
-const { DataTypes } = require("sequelize");
-const sequelize = require("../utils/db.js");
+const { DataTypes, Model } = require("sequelize");
 
-const User = (sequelize, DataTypes) => {
+const User = (sequelize) => {
   class User extends Model {}
   User.init(
     {
