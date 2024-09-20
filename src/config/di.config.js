@@ -1,7 +1,14 @@
-const { asClass, createContainer, asValue, Lifetime } = require("awilix");
+const {
+  asClass,
+  createContainer,
+  asValue,
+  Lifetime,
+  asFunction,
+} = require("awilix");
 const UserRepository = require("../repositories/user.repository");
 const UserService = require("../services/user.service");
 const UserController = require("../controllers/user.controller");
+const handleError = require("../utils/handleError");
 
 const configureContainer = (models, sequelize) => {
   const container = createContainer();
@@ -12,6 +19,7 @@ const configureContainer = (models, sequelize) => {
     userService: asClass(UserService, { lifetime: Lifetime.SINGLETON }),
     userRepository: asClass(UserRepository, { lifetime: Lifetime.SINGLETON }),
     userController: asClass(UserController, { lifetime: Lifetime.SINGLETON }),
+    handleError: asFunction(() => handleError),
   });
 
   return container;

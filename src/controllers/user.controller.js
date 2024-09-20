@@ -1,6 +1,7 @@
 class UserController {
-  constructor({ userService }) {
+  constructor({ userService, handleError }) {
     this.userService = userService;
+    this.handleError = handleError;
   }
 
   createUser = async (req, res) => {
@@ -9,10 +10,16 @@ class UserController {
       const { password, ...userWithoutPassword } = user;
       return res.status(201).json(userWithoutPassword);
     } catch (error) {
-      if (error.statusCode) {
-        return res.status(error.statusCode).json({ message: error.message });
-      }
-      res.status(500).json({ message: error.message });
+      this.handleError(res, error);
+    }
+  };
+
+  loginUser = async (req, res) => {
+    try {
+      const user = await this.userService.loginUser(req.body);
+      return res.status(200).json(user);
+    } catch (error) {
+      this.handleError(res, error);
     }
   };
 

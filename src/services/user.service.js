@@ -1,5 +1,7 @@
 const CustomError = require("../utils/CustomError");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 class UserService {
   constructor({ userRepository }) {
@@ -21,6 +23,27 @@ class UserService {
     userData.password = hashedPassword;
 
     return this.userRepository.createUser(userData);
+  }
+
+  async loginUser(userData) {
+    const { email, password } = userData;
+    const user = await this.userRepository.getUserByEmail(email);
+    if (!user) {
+      throw new CustomError("Invalid email", 401);
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      throw new CustomError("Invalid password", 401);
+    }
+
+    const accessToken = jwt.sign(
+      { id: user.id, email: user.email },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" }
+    );
+
+    return { accessToken };
   }
 
   async getUserById(id) {
