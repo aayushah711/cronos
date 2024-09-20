@@ -1,4 +1,5 @@
 const CustomError = require("../utils/CustomError");
+const bcrypt = require("bcrypt");
 
 class UserService {
   constructor({ userRepository }) {
@@ -13,6 +14,11 @@ class UserService {
     if (existingUser) {
       throw new CustomError("User with this email already exists", 409);
     }
+
+    // Save hashed bcrypt password
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(userData.password, saltRounds);
+    userData.password = hashedPassword;
 
     return this.userRepository.createUser(userData);
   }
