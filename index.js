@@ -4,6 +4,7 @@ const configureContainer = require("./src/config/di.config");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 const authRoutes = require("./src/routes/auth.routes");
+const jobRoutes = require("./src/routes/job.routes");
 const initializeModels = require("./src/models");
 const sequelize = require("./src/utils/db");
 
@@ -20,6 +21,7 @@ const createServer = () => {
     next();
   });
   app.use("/auth", authRoutes);
+  app.use("/jobs", jobRoutes);
 
   const server = http.createServer(app);
 

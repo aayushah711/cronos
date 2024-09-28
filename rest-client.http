@@ -20,8 +20,30 @@ Content-Type: application/json
 ### User Logout
 POST http://localhost:3000/auth/logout
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkZjhhZGNjLTc3NjQtNDRkZC05MDMxLThiZThlNGY4NTZmYiIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjY4NTY3NDksImV4cCI6MTcyNjg2MDM0OX0.b8Aec_PMl75y1Cdy-58s9cysvdhs6PXqmqzvG2lTsUs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkZjhhZGNjLTc3NjQtNDRkZC05MDMxLThiZThlNGY4NTZmYiIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3Mjc1NDYzNzUsImV4cCI6MTcyNzU0OTk3NX0.bC4yo8UYsS3wVomFuvs_d70nSExGDXs8nzLEV8-F8bs
 
 {
     "email": "user1@example.com"
+}
+
+### Create a new job
+POST http://localhost:3000/jobs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkZjhhZGNjLTc3NjQtNDRkZC05MDMxLThiZThlNGY4NTZmYiIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3Mjc1NDYzNzUsImV4cCI6MTcyNzU0OTk3NX0.bC4yo8UYsS3wVomFuvs_d70nSExGDXs8nzLEV8-F8bs
+
+{
+    "title": "Job 1",
+    "description": "Job 1 description",
+    "isActive": true,
+    "command": "console.log('Hello World!');",
+    "type": "once",
+    "minute": 0,
+    "hour": 0,
+    "dayOfMonth": 1,
+    "month": 1,
+    "dayOfWeek": 1,
+    "timezoneOffsetMinutes": -330,
+    "startTime": "2021-07-20T00:00:00.000Z",
+    "endTime": "2021-07-20T00:00:00.000Z",
+    "retries": 3
 }
