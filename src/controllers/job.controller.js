@@ -1,5 +1,5 @@
 class JobController {
-  constructor(jobService, handleError) {
+  constructor({ jobService, handleError }) {
     this.jobService = jobService;
     this.handleError = handleError;
   }

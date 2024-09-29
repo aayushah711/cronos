@@ -20,7 +20,7 @@ Content-Type: application/json
 ### User Logout
 POST http://localhost:3000/auth/logout
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkZjhhZGNjLTc3NjQtNDRkZC05MDMxLThiZThlNGY4NTZmYiIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3Mjc1NDYzNzUsImV4cCI6MTcyNzU0OTk3NX0.bC4yo8UYsS3wVomFuvs_d70nSExGDXs8nzLEV8-F8bs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkZjhhZGNjLTc3NjQtNDRkZC05MDMxLThiZThlNGY4NTZmYiIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3Mjc1OTE2MTgsImV4cCI6MTcyNzU5NTIxOH0.C3NSSS9BP6hcNSk7GPoSEmH6v4DKCj1_GRYOdCWmv1I
 
 {
     "email": "user1@example.com"
@@ -29,7 +29,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkZjhhZGNjL
 ### Create a new job
 POST http://localhost:3000/jobs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkZjhhZGNjLTc3NjQtNDRkZC05MDMxLThiZThlNGY4NTZmYiIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3Mjc1NDYzNzUsImV4cCI6MTcyNzU0OTk3NX0.bC4yo8UYsS3wVomFuvs_d70nSExGDXs8nzLEV8-F8bs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkZjhhZGNjLTc3NjQtNDRkZC05MDMxLThiZThlNGY4NTZmYiIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3Mjc1OTE2MTgsImV4cCI6MTcyNzU5NTIxOH0.C3NSSS9BP6hcNSk7GPoSEmH6v4DKCj1_GRYOdCWmv1I
 
 {
     "title": "Job 1",
