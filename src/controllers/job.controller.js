@@ -15,9 +15,8 @@ class JobController {
 
   async createJob(req, res) {
     try {
-      // const job = await this.jobService.createJob(req.body);
-      // return res.status(201).json(job);
-      return res.status(201).json({ message: "Job created successfully" });
+      const job = await this.jobService.createJob(req.body);
+      return res.status(201).json(job);
     } catch (error) {
       this.handleError(res, error);
     }

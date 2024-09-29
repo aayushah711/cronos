@@ -3,7 +3,7 @@ const path = require("path");
 const basename = path.basename(__filename);
 const sequelize = require("../utils/db.js");
 
-const initializeModels = () => {
+const initializeModels = async () => {
   const db = {};
 
   // Load each model file dynamically
@@ -19,13 +19,19 @@ const initializeModels = () => {
       db[model.name] = model; // Add to the db object
     });
 
-  //   // Define associations here
-  //   const { User, Profile } = db;
+  // Define associations here
+  const { User, Job } = db;
 
-  //   if (User && Profile) {
-  //     User.hasOne(Profile, { foreignKey: "userId" });
-  //     Profile.belongsTo(User, { foreignKey: "userId" });
-  //   }
+  if (User && Job) {
+    User.hasMany(Job, { foreignKey: "userId" });
+    Job.belongsTo(User, { foreignKey: "userId" });
+  }
+
+  try {
+    await sequelize.sync(); // Sync models with the database
+  } catch (error) {
+    console.error("Error syncing models", error);
+  }
 
   db.sequelize = sequelize; // Add Sequelize instance to db object
   return db;
