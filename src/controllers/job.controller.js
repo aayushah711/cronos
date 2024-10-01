@@ -15,8 +15,13 @@ class JobController {
 
   async createJob(req, res) {
     try {
-      const job = await this.jobService.createJob(req.body);
-      return res.status(201).json(job);
+      const job = await this.jobService.createJob({
+        ...req.body,
+        userId: req.user.id,
+      });
+      return res
+        .status(201)
+        .json({ message: "Job submitted successfully", job });
     } catch (error) {
       this.handleError(res, error);
     }

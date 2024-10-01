@@ -28,7 +28,7 @@ const initializeModels = async () => {
   }
 
   try {
-    await sequelize.sync(); // Sync models with the database
+    await sequelize.sync({ alter: true });
   } catch (error) {
     console.error("Error syncing models", error);
   }

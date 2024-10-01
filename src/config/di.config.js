@@ -8,7 +8,7 @@ const {
 const UserRepository = require("../repositories/user.repository");
 const UserService = require("../services/user.service");
 const UserController = require("../controllers/user.controller");
-const handleError = require("../utils/handleError");
+const { handleError } = require("../utils");
 const JobService = require("../services/job.service");
 const JobRepository = require("../repositories/job.repository");
 const JobController = require("../controllers/job.controller");

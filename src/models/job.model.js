@@ -1,5 +1,6 @@
 const { DataTypes, Model } = require("sequelize");
 const { jobTypes } = require("../constants");
+const { isValidCronCharacter } = require("../utils");
 
 const Job = (sequelize) => {
   class Job extends Model {}
@@ -28,31 +29,54 @@ const Job = (sequelize) => {
         allowNull: false,
       },
       type: {
+        type: DataTypes.ENUM,
+        values: jobTypes,
+        allowNull: false,
+      },
+      minute: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          isIn: [jobTypes],
+          isValid(value) {
+            return isValidCronCharacter(value);
+          },
         },
       },
-      minute: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
       hour: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
+        validate: {
+          isValid(value) {
+            return isValidCronCharacter(value);
+          },
+        },
       },
       dayOfMonth: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
+        validate: {
+          isValid(value) {
+            return isValidCronCharacter(value);
+          },
+        },
       },
       month: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
+        validate: {
+          isValid(value) {
+            return isValidCronCharacter(value);
+          },
+        },
       },
       dayOfWeek: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
+        validate: {
+          isValid(value) {
+            return isValidCronCharacter(value);
+          },
+        },
       },
       timezoneOffsetMinutes: {
         type: DataTypes.INTEGER,
