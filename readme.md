@@ -57,3 +57,5 @@ If job is of type once, set status as inactive, set nextScheduleTime as null
 If the job is recurring, set the correct nextScheduleTime, add a new entry in the Executions table.
 
 If a job fails, add a new entry in the Executions table, keep a count of retries. Keep retrying until the number of retries matches the configured retries.
+
+Validation for job creation: start date cannot be less than current date

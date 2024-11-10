@@ -20,7 +20,7 @@ Content-Type: application/json
 ### User Logout
 POST http://localhost:3000/auth/logout
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkZjhhZGNjLTc3NjQtNDRkZC05MDMxLThiZThlNGY4NTZmYiIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3Mjc1OTE2MTgsImV4cCI6MTcyNzU5NTIxOH0.C3NSSS9BP6hcNSk7GPoSEmH6v4DKCj1_GRYOdCWmv1I
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkZjhhZGNjLTc3NjQtNDRkZC05MDMxLThiZThlNGY4NTZmYiIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MzEyMTMzODQsImV4cCI6MTczMTIxNjk4NH0.nabEgouNnLKhkvKeSoVzEAOBMDJ2tbsfaLPzU9ajZrA
 
 {
     "email": "user1@example.com"
@@ -29,19 +29,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkZjhhZGNjL
 ### Create a new job
 POST http://localhost:3000/jobs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkZjhhZGNjLTc3NjQtNDRkZC05MDMxLThiZThlNGY4NTZmYiIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3Mjc1OTE2MTgsImV4cCI6MTcyNzU5NTIxOH0.C3NSSS9BP6hcNSk7GPoSEmH6v4DKCj1_GRYOdCWmv1I
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkZjhhZGNjLTc3NjQtNDRkZC05MDMxLThiZThlNGY4NTZmYiIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MzEyMTMzODQsImV4cCI6MTczMTIxNjk4NH0.nabEgouNnLKhkvKeSoVzEAOBMDJ2tbsfaLPzU9ajZrA
 
 {
-    "title": "Job 1",
+    "title": "Job 5",
     "description": "Job 1 description",
     "isActive": true,
     "command": "console.log('Hello World!');",
     "type": "once",
-    "minute": 0,
-    "hour": 0,
-    "dayOfMonth": 1,
-    "month": 1,
-    "dayOfWeek": 1,
+    "minute": "10",
+    "hour": "10",
+    "dayOfMonth": "*",
+    "month": "*",
+    "dayOfWeek": "*",
     "timezoneOffsetMinutes": -330,
     "startTime": "2021-07-20T00:00:00.000Z",
     "endTime": "2021-07-20T00:00:00.000Z",
