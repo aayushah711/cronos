@@ -38,7 +38,6 @@ class JobSchedulerService {
 
   addJobToQueue(job) {
     // add a setTimeout for each job to get executed
-    console.log(16, job);
     // {
     //   id: '1846c6de-86f1-4b23-aee9-1fd883303044',
     //   title: 'Job 5',
@@ -61,12 +60,13 @@ class JobSchedulerService {
     // }
 
     let timeLeft = job.minute - new Date().getMinutes();
+    const delay = 16000;
 
     this.timeouts.push(
       setTimeout(() => {
         // execute job.command
-        console.log(16, job.command);
-      }, timeLeft * 60000)
+        console.log(69, new Date().toLocaleTimeString());
+      }, timeLeft * 60000 - delay)
     );
   }
 
