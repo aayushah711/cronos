@@ -41,13 +41,13 @@ class JobRepository {
           hour: {
             [Op.or]: ["*", { [Op.in]: [currentHour, laterHour] }],
           },
-          day_of_month: {
+          dayOfMonth: {
             [Op.or]: ["*", { [Op.in]: [currentDayOfMonth, laterDayOfMonth] }],
           },
           month: {
             [Op.or]: ["*", { [Op.in]: [currentMonth, laterMonth] }],
           },
-          day_of_week: {
+          dayOfWeek: {
             [Op.or]: [
               "*",
               { [Op.in]: [currentDayOfWeek, laterDayOfWeek] },

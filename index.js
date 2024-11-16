@@ -15,6 +15,8 @@ const createServer = async () => {
   const models = await initializeModels();
 
   const container = configureContainer(models, sequelize);
+  // Call checkJobs function here
+  container.cradle.jobSchedulerService.checkJobsAndAddToQueue();
 
   app.use((req, res, next) => {
     req.container = container;
