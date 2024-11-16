@@ -36,7 +36,15 @@ class JobRepository {
       return await this.Job.findAll({
         where: {
           minute: {
-            [Op.or]: ["*", { [Op.between]: [currentMinute, laterMinute] }],
+            [Op.or]: [
+              "*",
+              ...(currentMinute < laterMinute
+                ? [{ [Op.between]: [currentMinute, laterMinute] }]
+                : [
+                    { [Op.between]: [currentMinute, "59"] },
+                    { [Op.between]: ["00", laterMinute] },
+                  ]),
+            ],
           },
           hour: {
             [Op.or]: ["*", { [Op.in]: [currentHour, laterHour] }],

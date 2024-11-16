@@ -1,6 +1,7 @@
 class JobSchedulerService {
-  constructor({ jobRepository }) {
+  constructor({ jobRepository, jobExecutorService }) {
     this.jobRepository = jobRepository;
+    this.jobExecutorService = jobExecutorService;
     this.jobs = [];
     this.interval = null;
     this.timeouts = [];
@@ -64,8 +65,8 @@ class JobSchedulerService {
 
     this.timeouts.push(
       setTimeout(() => {
-        // execute job.command
         console.log(69, new Date().toLocaleTimeString());
+        this.jobExecutorService.executeJob(job);
       }, timeLeft * 60000 - delay)
     );
   }
